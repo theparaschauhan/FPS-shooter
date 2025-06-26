@@ -1,15 +1,26 @@
+using StarterAssets;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    StarterAssetsInputs starterAssetsInputs;
+
+    void Awake()
+    {
+        starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
+    }
 
     void Update()
     {
-        RaycastHit hit;
-
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
+        if (starterAssetsInputs.shoot)
         {
-            Debug.Log(hit.collider.name);
-        }      
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
+            {
+                Debug.Log(hit.collider.name);
+                starterAssetsInputs.ShootInput(false);
+            }      
+        }
     }
 }
