@@ -2,25 +2,23 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField]int startingHealth = 3, currentHealth;
+    [SerializeField] int startingHealth = 3;
+    int currentHealth;
 
-    void Start()
+    void Awake()
     {
         currentHealth = startingHealth;
     }
 
-    void Update()
+    public void TakeDamage(int amount)
     {
-        if (currentHealth == 0)
+        currentHealth = currentHealth - amount;// current health - damage amount 
+        
+        if (currentHealth <= 0)
         {
             Destroy(this.gameObject);
             Debug.Log("Robot Destroyed !");
         }
-    }
-
-    public void TakeDamage(int damage)
-    {
-        currentHealth = currentHealth - damage;
     }
 
 }
