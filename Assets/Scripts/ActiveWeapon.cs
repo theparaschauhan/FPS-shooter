@@ -45,6 +45,12 @@ public class ActiveWeapon : MonoBehaviour
         {
             starterAssetsInputs.ShootInput(false);
         }
-
     }
+
+    public void SwitchWeapon(WeaponSO weaponSO)
+    {
+        Debug.Log(weaponSO.name + " switched");
+        
+    }
+
 }
