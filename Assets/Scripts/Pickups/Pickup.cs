@@ -1,16 +1,25 @@
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public abstract class Pickup : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] float rotationSpeed = 100f;
+    const string PLAYER_TAG = "Player";
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f, Space.Self);
     }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(PLAYER_TAG))
+        {
+            ActiveWeapon activeWeapon = other.GetComponentInChildren<ActiveWeapon>();
+            OnPickup(activeWeapon);
+            Destroy(this.gameObject);
+        }
+    }
+
+    protected abstract void OnPickup(ActiveWeapon activeWeapon);
 }
