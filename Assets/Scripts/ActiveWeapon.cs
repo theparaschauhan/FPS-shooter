@@ -1,4 +1,5 @@
 using Cinemachine;
+using Mono.Cecil;
 using StarterAssets;
 using UnityEngine;
 
@@ -10,18 +11,22 @@ public class ActiveWeapon : MonoBehaviour
 
     Animator animator;
     StarterAssetsInputs starterAssetsInputs;
+    FirstPersonController firstPersonController;
     Weapon currentWeapon;
 
     const string SHOOT_STRING = "Shoot";
 
     float timeSinceLastShot = 0f;
     float defaultFOV;
+    float defaultRotationSpeed;
 
     void Awake()
     {
         starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
+        firstPersonController = GetComponentInParent<FirstPersonController>();
         animator = GetComponent<Animator>();
         defaultFOV = playerFollowCamera.m_Lens.FieldOfView;
+        defaultRotationSpeed = firstPersonController.RotationSpeed;
     }
 
     void Start()
@@ -62,11 +67,13 @@ public class ActiveWeapon : MonoBehaviour
         {
             zoomVignette.SetActive(true);
             playerFollowCamera.m_Lens.FieldOfView = weaponSO.ZoomAmount;
+            firstPersonController.ChangeRotationSpeed(weaponSO.ZoomRoatationSpeed);
         }
         else
         {
             zoomVignette.SetActive(false);
             playerFollowCamera.m_Lens.FieldOfView = defaultFOV;
+            firstPersonController.ChangeRotationSpeed(defaultRotationSpeed);
         }
     }
 
