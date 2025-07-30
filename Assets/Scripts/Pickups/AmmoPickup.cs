@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class AmmoPickup : Pickup
 {
+    [SerializeField] int ammoAmount;
     protected override void OnPickup(ActiveWeapon activeWeapon)
     {
-        throw new System.NotImplementedException();
+        activeWeapon.AdjustAmmo(ammoAmount);
     }
 }
