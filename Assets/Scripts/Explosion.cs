@@ -10,7 +10,7 @@ public class Explosion : MonoBehaviour
         Explode();
     }
 
-    void OawGizmos()
+     void OnDrawGizmos() 
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
