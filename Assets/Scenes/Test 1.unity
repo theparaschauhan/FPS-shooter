@@ -165,10 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038e2abb4c55bef41b556c6ea545ffd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitVFXPrefab: {fileID: 8409553962557462351, guid: d47fa2ec9f706904c9d220783b4cde29, type: 3}
-  animator: {fileID: 728151397}
-  damageAmount: 1
   muzzleFlash: {fileID: 1535762493370507897}
+  interactionLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &236816786
 GameObject:
   m_ObjectHideFlags: 0
