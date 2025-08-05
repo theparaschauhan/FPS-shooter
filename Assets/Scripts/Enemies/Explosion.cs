@@ -18,7 +18,6 @@ public class Explosion : MonoBehaviour
 
     void Explode()
     {
-        //todo do damage to player
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (Collider hitCollider in hitColliders)

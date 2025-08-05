@@ -10,7 +10,6 @@ public abstract class Pickup : MonoBehaviour
         transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f, Space.Self);
     }
 
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(PLAYER_TAG))
