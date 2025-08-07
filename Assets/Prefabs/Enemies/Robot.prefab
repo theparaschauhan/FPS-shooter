@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe654fbe4f2bec4cb1e4b4aafb05520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robotExplosionVFX: {fileID: 2904693464289756635, guid: 4004ad4853243c3418d391fe3ecbb605, type: 3}
+  robotExplosionVFX: {fileID: 2904693464289756635, guid: eb7a1e01a892b2142867f5ca32eedfd6, type: 3}
   startingHealth: 3
 --- !u!195 &3347252072377756527
 NavMeshAgent:
