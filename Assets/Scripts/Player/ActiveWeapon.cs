@@ -38,7 +38,8 @@ public class ActiveWeapon : MonoBehaviour
     {
         SwitchWeapon(startingWeapon);
         // currentWeapon = GetComponentInChildren<Weapon>();
-        AdjustAmmo(currentWeaponSO.MagazineSize);
+        // AdjustAmmo(currentWeaponSO.MagazineSize);
+        SetInfiniteAmmo();
     }
 
     void Update()
@@ -47,16 +48,23 @@ public class ActiveWeapon : MonoBehaviour
         HandleZoom();
     }
 
-    public void AdjustAmmo(int amount)
+    private void AdjustAmmo(int amount)
     {
         currentAmmo = currentAmmo + amount;
-
+        /*
         if (currentAmmo > currentWeaponSO.MagazineSize)
         {
             currentAmmo = currentWeaponSO.MagazineSize;
         }
+        */
 
         ammoText.text = currentAmmo.ToString("D2");
+    }
+
+    public void SetInfiniteAmmo()
+    {
+        currentAmmo = int.MaxValue;
+        ammoText.text = "∞";
     }
 
     void HandleShoot()
@@ -70,7 +78,7 @@ public class ActiveWeapon : MonoBehaviour
             currentWeapon.Shoot(currentWeaponSO);
             animator.Play(SHOOT_STRING, 0, 0f);
             timeSinceLastShot = 0f;
-            AdjustAmmo(-1);
+            // AdjustAmmo(-1);
         }
 
         if (!currentWeaponSO.IsAutomatic)
@@ -109,7 +117,8 @@ public class ActiveWeapon : MonoBehaviour
         Weapon newWeapon = Instantiate(weaponSO.weaponPrefab, transform).GetComponent<Weapon>();
         currentWeapon = newWeapon;
         this.currentWeaponSO = weaponSO;
-        AdjustAmmo(currentWeaponSO.MagazineSize);
+        // AdjustAmmo(currentWeaponSO.MagazineSize);
+        SetInfiniteAmmo();
     }
 
 }
