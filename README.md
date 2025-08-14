@@ -2,7 +2,10 @@
 First Person Shooting Game
 
 
-https://github.com/user-attachments/assets/03bb28ab-68fd-4d02-8988-768d08903ff1
+
+
+https://github.com/user-attachments/assets/b4f0620e-6aaa-4e3a-bc08-4d8edb9dbbc5
+
 
 
 
@@ -19,5 +22,7 @@ https://github.com/user-attachments/assets/03bb28ab-68fd-4d02-8988-768d08903ff1
 > Camera Transition <br/>
 
 > C# programing <br/>
+
+> Intro to Profiler <br/>
 
 
